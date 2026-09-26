@@ -4168,6 +4168,282 @@ input:checked + .slider:before {
     border-left: 4px solid #ef4444;
 }
 
+/* ==========================================================================
+   MOBILE APPS DOWNLOAD SECTION (GITHUB SOURCES)
+   ========================================================================== */
+.mobile-downloads-container {
+    width: 100%;
+    max-width: 480px;
+    margin: 24px auto 16px;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.mobile-downloads-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px 22px;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.downloads-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.downloads-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+[data-theme="cyber"] .downloads-badge {
+    background: rgba(0, 240, 255, 0.1);
+    color: #00f0ff;
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.downloads-headline {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.02em;
+}
+
+.downloads-subtext {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.downloads-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.download-tile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+[data-theme="light"] .download-tile {
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .download-tile:hover {
+    background: #f8fafc;
+    border-color: #18181b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="cyber"] .download-tile {
+    background: rgba(8, 16, 32, 0.65);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+[data-theme="cyber"] .download-tile:hover {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: #00f0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 240, 255, 0.25);
+}
+
+[data-theme="dark"] .download-tile {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .download-tile:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.tile-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.android-tile .tile-icon-box {
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+}
+
+[data-theme="cyber"] .android-tile .tile-icon-box {
+    background: rgba(0, 240, 255, 0.15);
+    color: #00f0ff;
+}
+
+.windows-tile .tile-icon-box {
+    background: rgba(0, 120, 215, 0.12);
+    color: #0078d7;
+}
+
+[data-theme="cyber"] .windows-tile .tile-icon-box {
+    background: rgba(0, 240, 255, 0.2);
+    color: #00f0ff;
+}
+
+[data-theme="dark"] .windows-tile .tile-icon-box {
+    background: rgba(56, 189, 248, 0.16);
+    color: #38bdf8;
+}
+
+.ios-tile .tile-icon-box {
+    background: rgba(0, 0, 0, 0.06);
+    color: #18181b;
+}
+
+[data-theme="dark"] .ios-tile .tile-icon-box,
+[data-theme="cyber"] .ios-tile .tile-icon-box {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.download-tile:hover .tile-icon-box {
+    transform: scale(1.08);
+}
+
+.tile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tile-tag-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.tile-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--text-muted);
+}
+
+[data-theme="light"] .tile-tag {
+    background: #f4f4f5;
+    color: #52525b;
+}
+
+[data-theme="cyber"] .tile-tag {
+    background: rgba(0, 240, 255, 0.15);
+    color: #00f0ff;
+}
+
+.tile-tag-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.tile-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    margin: 2px 0;
+}
+
+.tile-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.85;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.download-tile:hover .tile-meta {
+    opacity: 1;
+    color: var(--accent);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 580px) {
+    .downloads-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .mobile-downloads-card {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+    .downloads-headline {
+        font-size: 1.15rem;
+    }
+    .download-tile {
+        padding: 14px;
+    }
+}
+
+.download-trigger-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+.downloads-modal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+
 
 
 

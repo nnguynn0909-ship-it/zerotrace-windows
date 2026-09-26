@@ -1103,7 +1103,7 @@ function renderAppIconGrid() {
     if (!grid) return;
 
     grid.innerHTML = '';
-    const currentIcon = localStorage.getItem('zeroclip_app_icon') || 'cyber';
+    const currentIcon = localStorage.getItem('zeroclip_app_icon') || 'light';
 
     Object.keys(APP_ICONS).forEach(key => {
         const item = APP_ICONS[key];
@@ -1126,7 +1126,7 @@ function renderAppIconGrid() {
 
 function setTheme(mode, updateLogo = true) {
     if (!['cyber', 'cloud', 'gradient', 'holographic', 'levitate', 'diamond', 'light', 'dark'].includes(mode)) {
-        mode = 'cyber';
+        mode = 'light';
     }
 
     localStorage.setItem('zeroclip_theme_mode', mode);
@@ -1188,8 +1188,8 @@ function setTheme(mode, updateLogo = true) {
 }
 
 function cycleTheme() {
-    const currentMode = localStorage.getItem('zeroclip_theme_mode') || 'cyber';
-    const modes = ['cyber', 'cloud', 'gradient', 'holographic', 'levitate', 'diamond', 'light', 'dark'];
+    const currentMode = localStorage.getItem('zeroclip_theme_mode') || 'light';
+    const modes = ['light', 'dark', 'cyber', 'cloud', 'gradient', 'holographic', 'levitate', 'diamond'];
     let nextIdx = (modes.indexOf(currentMode) + 1) % modes.length;
     const nextTheme = modes[nextIdx];
     setTheme(nextTheme, false);
@@ -1198,7 +1198,7 @@ function cycleTheme() {
 }
 
 // Khởi tạo Theme và App Icon ngay khi load script
-const initialThemeMode = localStorage.getItem('zeroclip_theme_mode') || 'cyber';
+const initialThemeMode = localStorage.getItem('zeroclip_theme_mode') || 'light';
 const initialAppIcon = localStorage.getItem('zeroclip_app_icon') || initialThemeMode;
 
 // Chạy cấu hình ban đầu

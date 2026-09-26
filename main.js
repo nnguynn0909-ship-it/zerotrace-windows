@@ -2,6 +2,8 @@ const { app, BrowserWindow, shell, Menu } = require('electron');
 const path = require('path');
 
 let mainWindow = null;
+const LIVE_URL = 'https://zeroclip-vn.pages.dev';
+const LOCAL_HTML = path.join(__dirname, 'www', 'index.html');
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -24,13 +26,24 @@ function createWindow() {
   // Remove default menu for sleek app feel
   Menu.setApplicationMenu(null);
 
-  mainWindow.loadFile(path.join(__dirname, 'www', 'index.html'));
+  // Live Auto-Update: Load latest cloud web app, fallback to local file if offline
+  mainWindow.loadURL(LIVE_URL).catch(() => {
+    mainWindow.loadFile(LOCAL_HTML);
+  });
+
+  mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription, validatedURL) => {
+    if (validatedURL && validatedURL.startsWith('http')) {
+      mainWindow.loadFile(LOCAL_HTML);
+    }
+  });
 
   // Open external links in user's default browser
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith('http:') || url.startsWith('https:')) {
-      shell.openExternal(url);
-      return { action: 'deny' };
+      if (!url.startsWith(LIVE_URL)) {
+        shell.openExternal(url);
+        return { action: 'deny' };
+      }
     }
     return { action: 'allow' };
   });
