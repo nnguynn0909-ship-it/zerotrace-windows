@@ -15,10 +15,10 @@ Thư mục **`zeroclip windows`** chứa toàn bộ dự án máy tính **Window
 ---
 
 ## 📲 CÁCH TẢI VÀ CHẠY TRÊN WINDOWS:
-1. Vào mục **Actions** trên GitHub: [nnguynn0909-ship-it/zerotrace-windows](https://github.com/nnguynn0909-ship-it/zerotrace-windows/actions).
-2. Chọn lần chạy mới nhất -> Kéo xuống mục **Artifacts** -> Tải gói `ZeroTrace-Windows-EXE.zip`.
-3. Giải nén file `.zip` vừa tải:
-   - Nếu muốn dùng ngay không cần cài: Mở file `ZeroTrace-Portable.exe`.
-   - Nếu muốn cài đặt cố định: Chạy file `ZeroTrace Setup 1.0.0.exe`.
-4. Khi chạy lần đầu, nếu Windows SmartScreen hiện cảnh báo *"Windows protected your PC"*, bạn chỉ cần bấm:
+1. Vào trang **Releases** trên GitHub: [nnguynn0909-ship-it/zerotrace-windows/releases](https://github.com/nnguynn0909-ship-it/zerotrace-windows/releases).
+2. Tải trực tiếp phiên bản bạn muốn:
+   - **`ZeroTrace-Portable.exe`**: Tải về mở dùng ngay, không cần cài đặt.
+   - **`ZeroTrace Setup 1.0.0.exe`**: File cài đặt hoàn chỉnh cho Windows.
+3. Khi chạy lần đầu, nếu Windows SmartScreen hiện thông báo *"Windows protected your PC"*, bạn chỉ cần bấm:
    - **"More info" (Thêm thông tin)** -> Bấm **"Run anyway" (Vẫn chạy)**.
+
