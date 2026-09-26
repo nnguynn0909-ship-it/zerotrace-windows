@@ -1,0 +1,53 @@
+{
+  "name": "zerotrace-windows",
+  "version": "1.0.0",
+  "description": "ZeroTrace - Zero-Trace End-to-End Encrypted Cloud Clipboard for Windows",
+  "main": "main.js",
+  "author": "ZeroTrace",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.zerotrace.desktop",
+    "productName": "ZeroTrace",
+    "copyright": "Copyright © 2026 ZeroTrace",
+    "directories": {
+      "output": "dist-release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ZeroTrace"
+    },
+    "portable": {
+      "artifactName": "ZeroTrace-Portable.exe"
+    },
+    "files": [
+      "main.js",
+      "assets/**/*",
+      "www/**/*"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  }
+}

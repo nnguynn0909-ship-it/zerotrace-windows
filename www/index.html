@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#fafafa" id="theme-color-meta">
+    <link rel="manifest" id="appManifestLink" href="manifest.json">
+    <link rel="apple-touch-icon" id="appTouchIcon" href="icon.svg">
+    <link rel="icon" id="appFavicon" type="image/svg+xml" href="icon.svg">
+    <title>Zero-Trace Clipboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Orbitron:wght@500;600;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=15">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Cyber 2.5D Atmospheric Background -->
+    <div class="cyber-bg-decor" aria-hidden="true">
+        <div class="cyber-watermark">DATA VISUALIZATION</div>
+        <div class="cyber-ring ring-1"></div>
+        <div class="cyber-ring ring-2"></div>
+        <div class="cyber-glow-orb orb-1"></div>
+        <div class="cyber-glow-orb orb-2"></div>
+        <div class="cyber-grid-plane"></div>
+    </div>
+
+    <!-- Cloud Pastel Dreamy Atmospheric Background -->
+    <div class="cloud-bg-decor" aria-hidden="true">
+        <div class="cloud-sun-glow"></div>
+        <div class="cloud-puff cloud-1"></div>
+        <div class="cloud-puff cloud-2"></div>
+        <div class="cloud-puff cloud-3"></div>
+        <div class="cloud-puff cloud-4"></div>
+        <div class="cloud-puff cloud-5"></div>
+    </div>
+
+    <!-- Gradient UI Fluid Mesh Atmospheric Background -->
+    <div class="gradient-bg-decor" aria-hidden="true">
+        <div class="gradient-mesh-blob mesh-1"></div>
+        <div class="gradient-mesh-blob mesh-2"></div>
+        <div class="gradient-mesh-blob mesh-3"></div>
+        <div class="gradient-mesh-blob mesh-4"></div>
+        <div class="gradient-mesh-blob mesh-5"></div>
+        <div class="gradient-mesh-grid"></div>
+    </div>
+
+    <!-- Holographic 3D Glass Prism & Caustics Background -->
+    <div class="holo-bg-decor" aria-hidden="true">
+        <div class="holo-prism-crystal prism-1"></div>
+        <div class="holo-prism-crystal prism-2"></div>
+        <div class="holo-caustic-beam beam-1"></div>
+        <div class="holo-caustic-beam beam-2"></div>
+        <div class="holo-rainbow-orb orb-1"></div>
+        <div class="holo-rainbow-orb orb-2"></div>
+    </div>
+
+    <!-- Levitate 3D Isometric Dark Glass & Purple Energy Cube Background -->
+    <div class="levitate-bg-decor" aria-hidden="true">
+        <div class="levitate-energy-cube">
+            <div class="cube-inner-core"></div>
+            <div class="cube-pedestal-glow"></div>
+        </div>
+        <div class="levitate-ambient-orb orb-1"></div>
+        <div class="levitate-ambient-orb orb-2"></div>
+        <div class="levitate-isometric-slab slab-1"></div>
+        <div class="levitate-isometric-slab slab-2"></div>
+    </div>
+
+    <!-- Diamond Sōma Pastel Crystal & Liquid Glass Background (Photos 1, 2, 3) -->
+    <div class="diamond-bg-decor" aria-hidden="true">
+        <!-- Pastel Watercolor Cloud Mists (Image 2) -->
+        <div class="diamond-pastel-mist mist-1"></div>
+        <div class="diamond-pastel-mist mist-2"></div>
+        <div class="diamond-pastel-mist mist-3"></div>
+
+        <!-- 3D Faceted Diamond Cube (Image 3) -->
+        <div class="diamond-faceted-cube-wrap">
+            <svg class="diamond-faceted-cube-svg" viewBox="0 0 200 224" width="180" height="200">
+                <defs>
+                    <!-- Top Facets Gradients -->
+                    <linearGradient id="facetT1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#dbeafe"/>
+                    </linearGradient>
+                    <linearGradient id="facetT2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#bfdbfe"/>
+                        <stop offset="100%" stop-color="#93c5fd"/>
+                    </linearGradient>
+                    <linearGradient id="facetT3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#e0e7ff"/>
+                        <stop offset="100%" stop-color="#c7d2fe"/>
+                    </linearGradient>
+                    <linearGradient id="facetT4" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#e0f2fe"/>
+                    </linearGradient>
+
+                    <!-- Left Facets Gradients -->
+                    <linearGradient id="facetL1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#93c5fd"/>
+                        <stop offset="100%" stop-color="#60a5fa"/>
+                    </linearGradient>
+                    <linearGradient id="facetL2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3b82f6"/>
+                        <stop offset="100%" stop-color="#1d4ed8"/>
+                    </linearGradient>
+                    <linearGradient id="facetL3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#60a5fa"/>
+                        <stop offset="100%" stop-color="#3b82f6"/>
+                    </linearGradient>
+                    <linearGradient id="facetL4" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#dbeafe"/>
+                        <stop offset="100%" stop-color="#93c5fd"/>
+                    </linearGradient>
+
+                    <!-- Right Facets Gradients (with pink-lilac refractions from Image 2/3) -->
+                    <linearGradient id="facetR1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f5d0fe"/>
+                        <stop offset="100%" stop-color="#c084fc"/>
+                    </linearGradient>
+                    <linearGradient id="facetR2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#818cf8"/>
+                        <stop offset="100%" stop-color="#6366f1"/>
+                    </linearGradient>
+                    <linearGradient id="facetR3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#93c5fd"/>
+                        <stop offset="100%" stop-color="#38bdf8"/>
+                    </linearGradient>
+                    <linearGradient id="facetR4" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#fbcfe8"/>
+                    </linearGradient>
+                    <filter id="cubeSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                </defs>
+                <!-- Floor Caustic Shadow -->
+                <ellipse cx="100" cy="216" rx="65" ry="16" fill="rgba(56, 189, 248, 0.35)" filter="blur(6px)"/>
+                
+                <!-- Facets Top -->
+                <polygon points="100,12 186,62 100,62" fill="url(#facetT1)" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
+                <polygon points="186,62 100,112 100,62" fill="url(#facetT2)" stroke="rgba(255,255,255,0.75)" stroke-width="1.2"/>
+                <polygon points="100,112 14,62 100,62" fill="url(#facetT3)" stroke="rgba(255,255,255,0.75)" stroke-width="1.2"/>
+                <polygon points="14,62 100,12 100,62" fill="url(#facetT4)" stroke="rgba(255,255,255,0.9)" stroke-width="1.2"/>
+                
+                <!-- Facets Left -->
+                <polygon points="14,62 100,112 57,137" fill="url(#facetL1)" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <polygon points="100,112 100,212 57,137" fill="url(#facetL2)" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+                <polygon points="100,212 14,162 57,137" fill="url(#facetL3)" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <polygon points="14,162 14,62 57,137" fill="url(#facetL4)" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
+
+                <!-- Facets Right -->
+                <polygon points="100,112 186,62 143,137" fill="url(#facetR1)" stroke="rgba(255,255,255,0.75)" stroke-width="1.2"/>
+                <polygon points="186,62 186,162 143,137" fill="url(#facetR2)" stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+                <polygon points="186,162 100,212 143,137" fill="url(#facetR3)" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <polygon points="100,212 100,112 143,137" fill="url(#facetR4)" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
+            </svg>
+        </div>
+
+        <!-- Floating Liquid Glass Spheres (Image 1) -->
+        <div class="liquid-glass-sphere sphere-main"></div>
+        <div class="liquid-glass-sphere sphere-small"></div>
+
+        <!-- Pastel Crystal Cluster Silhouettes (Image 2) -->
+        <div class="diamond-crystal-cluster-wrap">
+            <div class="crystal-spire spire-1"></div>
+            <div class="crystal-spire spire-2"></div>
+            <div class="crystal-spire spire-3"></div>
+            <div class="crystal-spire spire-4"></div>
+        </div>
+
+        <!-- Sparkles (✦, ✧) -->
+        <div class="diamond-sparkle sp-1">✦</div>
+        <div class="diamond-sparkle sp-2">✧</div>
+        <div class="diamond-sparkle sp-3">✦</div>
+        <div class="diamond-sparkle sp-4">✧</div>
+    </div>
+
+    <!-- Quick Theme Switch Pill -->
+    <div class="quick-theme-bar">
+        <button class="quick-theme-btn" id="quickThemeBtn" onclick="cycleTheme()" title="Đổi nhanh giao diện">
+            <span id="quickThemeIcon">◐</span>
+            <span id="quickThemeLabel">System</span>
+        </button>
+        <button class="settings-toggle" onclick="toggleSettingsMenu(event)" aria-label="Cài đặt">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+    </div>
+    
+    <!-- iOS / Arc Style Settings Sheet Modal -->
+    <div class="settings-modal-backdrop" id="settingsBackdrop" onclick="closeSettingsMenu(event)">
+        <div class="settings-sheet" id="settingsMenu" onclick="event.stopPropagation()">
+            <div class="sheet-drag-handle" aria-hidden="true"></div>
+            <div class="settings-sheet-header">
+                <span class="settings-sheet-title">Chủ đề & Biểu tượng</span>
+                <button class="settings-close-btn" onclick="toggleSettingsMenu()" aria-label="Đóng">&times;</button>
+            </div>
+
+            <!-- Unified Theme & App Icon Grid -->
+            <div class="app-icon-grid" id="appIconGrid">
+                <!-- App icon cards will be dynamically injected / rendered here -->
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <!-- Extra effects -->
+            <div class="settings-extra-options">
+                <button class="settings-item inactive" id="confettiMenuBtn" onclick="toggleConfetti()">
+                    <span class="settings-icon">🎉</span>
+                    <span class="settings-text">Pháo hoa lúc gửi</span>
+                </button>
+                <button class="settings-item inactive" id="bubbleMenuBtn" onclick="toggleBubbles()">
+                    <span class="settings-icon">🫧</span>
+                    <span class="settings-text">Bong bóng bọt nước</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-container">
+        <div class="app-icon">
+            <h1 class="logo">
+                <span class="header-logo-badge" id="headerLogoBadge"></span>
+                ZEROCLIP
+            </h1>
+            <div class="logo-sub">Bí mật của bạn. Và chỉ của bạn.</div>
+            <a href="javascript:void(0)" class="features-link" onclick="document.getElementById('featuresModal').classList.add('show')">Các chức năng của web là gì?</a>
+        </div>
+    </div>
+
+    <div class="main-card-wrapper">
+        <div class="main-card">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('send')">GỬI LÊN</button>
+                <button class="tab-btn" onclick="switchTab('receive')">NHẬN VỀ</button>
+            </div>
+
+            <div id="sendTab" class="form-section active">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Loại dữ liệu:</label>
+                        <select id="dataType" onchange="toggleInputType()">
+                            <option value="text">Văn bản / Link</option>
+                            <option value="file">File / Hình ảnh</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Tự hủy sau:</label>
+                        <select id="expireTime">
+                            <option value="5">5 Phút</option>
+                            <option value="15" selected>15 Phút</option>
+                            <option value="60">60 Phút</option>
+                            <option value="120">120 Phút</option>
+                            <option value="1440">24 Giờ</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="textInputGroup" class="input-group">
+                    <label>Nội dung:</label>
+                    <textarea id="textContent" placeholder="Dán link hoặc chữ vào đây..."></textarea>
+                </div>
+
+                <div id="fileInputGroup" class="input-group" style="display: none;">
+                    <label>Kéo thả File hoặc nhấn Ctrl+V:</label>
+                    <div class="paste-zone" id="pasteZone" onclick="document.getElementById('fileInput').click()">
+                        <div id="dropText">Kéo thả File, <b>Ctrl+V</b> hoặc Chạm/Click để chọn</div>
+                        <div class="preview-container" id="previewContainer"></div>
+                        <div class="preview-count" id="previewCount"></div>
+                    </div>
+                    <input type="file" id="fileInput" multiple style="display: none;"
+                        onchange="handleFileSelect(event)">
+                </div>
+
+                <div class="toggle-container" style="margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--paste-hover-bg); border-radius: 8px; border: 1px solid var(--border-color);">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-main);">Xác nhận Admin đẹp trai</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="adminHandsomeSend">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <button class="action-btn" onclick="handleSend()">MÃ HÓA & GỬI</button>
+            </div>
+
+            <div id="receiveTab" class="form-section">
+                <div class="input-group">
+                    <label>Nhập mã bảo mật (6 số) hoặc Quét QR:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="tel" id="pinInput" placeholder="VD: 123456" maxlength="6"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);"
+                            style="text-align: center; font-size: 1.5rem; letter-spacing: 5px; flex: 1;">
+                        <button class="action-btn" style="flex: 0 0 54px; margin-top: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-main);" onclick="startScan()" aria-label="Quét QR">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><rect x="7" y="7" width="10" height="10"></rect></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="toggle-container" style="margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--paste-hover-bg); border-radius: 8px; border: 1px solid var(--border-color);">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-main);">Xác nhận Admin đẹp trai</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="adminHandsomeReceive">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <button id="receiveBtn" class="action-btn" onclick="handleReceive()">LẤY DỮ LIỆU</button>
+
+                <div id="receiveResult" class="result-box">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Dữ liệu nhận được:</div>
+                        <button id="copyTextBtn" onclick="copyReceivedText()" style="display: none; background: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 4px; padding: 4px 10px; font-size: 0.75rem; font-weight: 500; cursor: pointer;">SAO CHÉP</button>
+                    </div>
+                    <div id="receivedText" style="white-space: pre-wrap; margin-bottom: 15px;"></div>
+                    <div id="receivedImagesContainer" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                    <button class="action-btn delete-data-btn" onclick="promptDelete()">XÓA NGAY DỮ LIỆU</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2.5D Isometric Pedestal Platform Under Main Card -->
+        <div class="cyber-card-pedestal" aria-hidden="true">
+            <div class="pedestal-top-surface"></div>
+            <div class="pedestal-edge"></div>
+            <div class="pedestal-neon-rim"></div>
+            <div class="pedestal-floor-glow"></div>
+        </div>
+    </div>
+
+
+
+    <div class="modal-overlay" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-title">GỬI THÀNH CÔNG</div>
+            <div class="modal-desc">Lưu lại mã này hoặc quét QR để nhận dữ liệu. Mã sẽ tự hủy theo thời gian bạn đã
+                chọn.</div>
+
+            <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem;">MÃ BẢO MẬT:</div>
+            <div class="pin-display" id="modalPin">------</div>
+
+            <div id="qrcode-container"></div>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="memorizeCheckbox" onchange="toggleCloseBtn()">
+                Tôi đã lưu/nhớ mã bảo mật này
+            </label>
+
+            <button class="confirm-btn" id="closeModalBtn" onclick="closeModal()" disabled>ĐÓNG</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-title">XÁC NHẬN XÓA</div>
+            <div class="modal-desc">Bạn có chắc chắn muốn xóa dữ liệu này luôn không? Hành động này không thể hoàn tác.
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 10px;">
+                <button class="action-btn"
+                    style="flex: 1; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); margin-top: 0;"
+                    onclick="closeConfirmModal()">HỦY BỎ</button>
+                <button class="action-btn"
+                    style="flex: 1; background: #000000; color: white; border: none; margin-top: 0;"
+                    onclick="executeDelete()">XÓA NGAY</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="scannerModal">
+        <div class="modal-content" style="padding: 20px; max-width: 350px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div class="modal-title" style="margin-bottom: 0; font-size: 1.1rem;">QUÉT MÃ QR</div>
+                <button onclick="stopScan()" style="background: transparent; border: none; color: var(--text-main); font-size: 1.5rem; font-weight: bold; cursor: pointer; padding: 0 5px;">&times;</button>
+            </div>
+            <div id="qr-reader" style="width: 100%; border-radius: 8px; overflow: hidden; background: #000;"></div>
+            <div style="margin-top: 15px; font-size: 0.85rem; color: var(--text-muted);">Đưa Camera vào mã QR trên máy gửi.</div>
+        </div>
+    </div>
+
+    <!-- Admin Handsome Modal -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-title">CÂU HỎI TÂM LINH</div>
+            <div class="modal-desc">Admin có đẹp trai không? Trả lời thật lòng đi mới cho gửi!</div>
+            
+            <div style="display: flex; gap: 12px; margin-top: 24px;">
+                <button class="action-btn" style="flex: 1; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); margin-top: 0;" onclick="adminNo()">Không hề</button>
+                <button class="action-btn" style="flex: 1; background: var(--accent); color: var(--btn-text); border: none; margin-top: 0;" onclick="adminYes()">Có, tuyệt vời!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Fullscreen Modal -->
+    <div class="modal-overlay" id="imageLightbox" onclick="this.classList.remove('show')" style="z-index: 10000; cursor: zoom-out;">
+        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+            <img id="lightboxImg" src="" style="max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        </div>
+    </div>
+
+    <!-- Custom Confirm Modal -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-title">XÓA DỮ LIỆU</div>
+            <div class="modal-desc">Bạn có chắc muốn xóa vĩnh viễn dữ liệu này trên máy chủ ngay bây giờ?<br>Hành động này không thể hoàn tác.</div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="action-btn" style="background: var(--bg-color); color: var(--text-main); border: 1px solid var(--border-color);" onclick="closeConfirmModal()">HỦY</button>
+                <button class="action-btn" onclick="executeDelete()">XÁC NHẬN XÓA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Info Modal -->
+    <div class="modal-overlay" id="featuresModal" onclick="if(event.target === this) this.classList.remove('show')">
+        <div class="modal-content" style="text-align: left;">
+            <div class="modal-title" style="text-align: center; margin-bottom: 15px;">CÁC CHỨC NĂNG CỦA WEB</div>
+            <div class="modal-desc" style="font-size: 0.95rem; line-height: 1.6;">
+                <ul style="padding-left: 20px; margin-top: 15px; display: flex; flex-direction: column; gap: 12px; text-align: left; list-style-type: disc;">
+                    <li><strong>Mã hóa đầu cuối:</strong> Bảo mật tuyệt đối tệp tin và tin nhắn.</li>
+                    <li><strong>Tự động hủy:</strong> Dữ liệu tự xóa vĩnh viễn theo thời hạn thiết lập.</li>
+                    <li><strong>Quét mã QR siêu tốc:</strong> Quét mã để lấy dữ liệu bằng Camera nhanh chóng.</li>
+                    <li><strong>Hỗ trợ mọi loại file:</strong> Thoải mái gửi các tệp văn bản (TXT, DOCX, PDF), hình ảnh (JPG, PNG), và đa phương tiện (MP3, MP4...).</li>
+                    <li><strong>Xem trước thông minh:</strong> Đọc file PDF, xem ảnh và nghe nhạc trực tiếp trên web.</li>
+                    <li><strong>Xử lý đa tệp:</strong> Hỗ trợ kéo thả gộp nhiều tệp cùng lúc (tối đa 25MB).</li>
+                </ul>
+                <div style="text-align: center; margin-top: 20px; font-weight: bold; font-size: 1.05rem; color: var(--accent);">
+                    Sự an toàn của bạn là trên hết.
+                </div>
+            </div>
+            <div style="margin-top: 25px; display: flex; justify-content: center;">
+                <button class="understand-btn" onclick="document.getElementById('featuresModal').classList.remove('show')">Đã hiểu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="crypto.js"></script>
+
+    <!-- Footer -->
+    <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 20px; letter-spacing: 1px; opacity: 0.7; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            SECURED BY ZERO-TRACE ENCRYPTION
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.65rem; width: 100%; max-width: 150px; opacity: 0.8;" title="Dung lượng máy chủ">
+            <span style="font-family: monospace;">DB</span>
+            <div style="flex: 1; height: 3px; background: var(--border-color); border-radius: 2px; overflow: hidden; position: relative;">
+                <div id="storageBar" style="position: absolute; left: 0; top: 0; height: 100%; background: var(--text-muted); width: 0%; transition: width 1s cubic-bezier(0.1, 0.7, 0.1, 1);"></div>
+            </div>
+            <span id="storageText" style="font-family: monospace;">0%</span>
+        </div>
+    </div>
+
+    <script src="script.js?v=15"></script>
+</body>
+
+</html>
