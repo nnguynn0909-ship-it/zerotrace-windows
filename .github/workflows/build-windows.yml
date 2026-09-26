@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main, master ]
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -16,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Dependencies
         run: |
@@ -35,3 +38,23 @@ jobs:
           path: |
             dist-release/*.exe
           retention-days: 14
+
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v1.0.0"
+          name: "ZeroTrace Windows v1.0.0"
+          draft: false
+          prerelease: false
+          make_latest: true
+          body: |
+            ### 🚀 Bản cài đặt ZeroTrace cho máy tính Windows (.EXE)
+            
+            Tải về trực tiếp không cần đăng nhập:
+            - **ZeroTrace-Portable.exe**: Bản Portable - Tải về bấm mở chạy ngay lập tức, không cần cài đặt.
+            - **ZeroTrace Setup 1.0.0.exe**: Bản Cài đặt chuẩn Windows (tự tạo shortcut màn hình và Start Menu).
+          files: |
+            dist-release/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
